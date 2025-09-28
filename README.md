@@ -12,3 +12,6 @@
 
 ## Search
 <img width="2222" height="1100" alt="image" src="https://github.com/user-attachments/assets/6914b112-793a-4b11-9c95-c8cca4250e90" />
+
+## Login Required
+<img width="2243" height="854" alt="image" src="https://github.com/user-attachments/assets/e2452560-1219-4afd-84b0-b81406b0e526" />
