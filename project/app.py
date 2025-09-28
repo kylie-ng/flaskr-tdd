@@ -1,36 +1,30 @@
-import sqlite3
 from pathlib import Path
-
-from flask import Flask, g, render_template, request, session, \
-                  flash, redirect, url_for, abort, jsonify
+from flask import Flask, render_template, request, session, flash, redirect, url_for, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
-
 
 basedir = Path(__file__).resolve().parent
 
-# configuration
 DATABASE = "flaskr.db"
 USERNAME = "admin"
 PASSWORD = "admin"
 SECRET_KEY = "change_me"
-SQLALCHEMY_DATABASE_URI = f'sqlite:///{Path(basedir).joinpath(DATABASE)}'
+SQLALCHEMY_DATABASE_URI = f'sqlite:///{basedir / DATABASE}'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-
-# create and initialize a new Flask app
 app = Flask(__name__)
-# load the config
 app.config.from_object(__name__)
-# init sqlalchemy
+
 db = SQLAlchemy(app)
 
 from project import models
 
+# Ensure tables exist
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def index():
-    """Searches the database for entries, then displays them."""
-    entries = db.session.query(models.Post)
+    entries = db.session.query(models.Post).all()  # <- .all() ensures a list
     return render_template('index.html', entries=entries)
 
 
