@@ -6,6 +6,7 @@ from project.app import app, db, Post, json
 
 TEST_DB = "test.db"
 
+
 @pytest.fixture
 def client():
     BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,6 +75,7 @@ def test_messages(client):
     assert b"&lt;Hello&gt;" in rv.data
     assert b"<strong>HTML</strong> allowed here" in rv.data
 
+
 # "Be sure to write a test for this on your own!"
 def test_search(client):
     # hit /search/ without a query
@@ -84,7 +86,9 @@ def test_search(client):
     assert response.status_code == 200
     assert b"hello" in response.data or b"Search results" in response.data
 
+
 # "Be sure to write a test for this on your own!"
+
 
 def test_delete_requires_login(client):
     # First, create a post in the test database
@@ -98,8 +102,8 @@ def test_delete_requires_login(client):
     response = client.get(f"/delete/{post_id}")
     assert response.status_code == 401  # should be unauthorized
     data = response.get_json()
-    assert data['status'] == 0
-    assert "Please log in" in data['message']
+    assert data["status"] == 0
+    assert "Please log in" in data["message"]
 
     # Log in first
     client.post("/login", data={"username": "admin", "password": "admin"})
@@ -108,13 +112,14 @@ def test_delete_requires_login(client):
     response = client.get(f"/delete/{post_id}")
     assert response.status_code == 200
     data = response.get_json()
-    assert data['status'] == 1
-    assert "Post Deleted" in data['message']
+    assert data["status"] == 1
+    assert "Post Deleted" in data["message"]
 
     # Check that the post is actually removed from the database
     with client.application.app_context():
         post_in_db = db.session.query(Post).filter_by(id=post_id).first()
         assert post_in_db is None
+
 
 def test_delete_message(client):
     """Ensure the messages are being deleted"""
