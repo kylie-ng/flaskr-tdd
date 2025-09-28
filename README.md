@@ -20,3 +20,6 @@
 Internal Database URL: postgresql://ece444_deploy_dbtest_flbx_user:0aRkMEGCJI1msYBkLVrp1nbKkXW7LJSJ@dpg-d3c9vkadbo4c73e0je80-a/ece444_deploy_dbtest_flbx
 
 External Database URL: postgresql://ece444_deploy_dbtest_flbx_user:0aRkMEGCJI1msYBkLVrp1nbKkXW7LJSJ@dpg-d3c9vkadbo4c73e0je80-a.oregon-postgres.render.com/ece444_deploy_dbtest_flbx
+
+<img width="2234" height="1262" alt="image" src="https://github.com/user-attachments/assets/a080e028-7520-4e89-ae49-1502b6e64c44" />
+
