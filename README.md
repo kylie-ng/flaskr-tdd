@@ -23,3 +23,7 @@ External Database URL: postgresql://ece444_deploy_dbtest_flbx_user:0aRkMEGCJI1ms
 
 <img width="2234" height="1262" alt="image" src="https://github.com/user-attachments/assets/a080e028-7520-4e89-ae49-1502b6e64c44" />
 
+## Linting and Code Formatting
+<img width="769" height="299" alt="image" src="https://github.com/user-attachments/assets/3a17e794-c3e4-42ce-a0d0-6987e635af30" />
+
+
