@@ -1,0 +1,11 @@
+# Ignore Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore virtual environment
+venv/
+
+# Ignore SQLite database files (optional)
+flaskr.db
+test.db
