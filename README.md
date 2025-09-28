@@ -15,3 +15,7 @@
 
 ## Login Required
 <img width="2243" height="854" alt="image" src="https://github.com/user-attachments/assets/e2452560-1219-4afd-84b0-b81406b0e526" />
+
+## Postgres Database on Render
+Internal Database URL: postgresql://ece444_deploy_dbtest_flbx_user:0aRkMEGCJI1msYBkLVrp1nbKkXW7LJSJ@dpg-d3c9vkadbo4c73e0je80-a/ece444_deploy_dbtest_flbx
+External Database URL: postgresql://ece444_deploy_dbtest_flbx_user:0aRkMEGCJI1msYBkLVrp1nbKkXW7LJSJ@dpg-d3c9vkadbo4c73e0je80-a.oregon-postgres.render.com/ece444_deploy_dbtest_flbx
