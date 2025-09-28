@@ -73,3 +73,14 @@ def test_messages(client):
     assert b"No entries here so far" not in rv.data
     assert b"&lt;Hello&gt;" in rv.data
     assert b"<strong>HTML</strong> allowed here" in rv.data
+
+# my own search test bcz "Be sure to write a test for this on your own!"
+def test_search(client):
+    # hit /search/ without a query
+    response = client.get("/search/")
+    assert response.status_code == 200
+
+    # hit /search/ with a query
+    response = client.get("/search/?query=hello")
+    assert response.status_code == 200
+    assert b"hello" in response.data or b"Search results" in response.data
