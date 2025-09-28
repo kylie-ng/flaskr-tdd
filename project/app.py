@@ -113,3 +113,12 @@ def delete_entry(post_id):
 
 if __name__ == "__main__":
     app.run()
+
+# Modify app.py to initialize the database if missing
+import os
+from project.app import init_db
+
+# Only run once, when starting the app
+if not os.path.exists(app.config["DATABASE"]):
+    with app.app_context():
+        init_db()
