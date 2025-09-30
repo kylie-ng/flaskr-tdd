@@ -2,7 +2,10 @@ import os
 import pytest
 from pathlib import Path
 
-from project.app import app, db, Post, json
+from project.app import app, db
+
+from project.models import Post
+import json
 
 TEST_DB = "test.db"
 
@@ -78,6 +81,12 @@ def test_messages(client):
 
 # "Be sure to write a test for this on your own!"
 def test_search(client):
+    # degbugging the 1 failue testcase: adding "hello" to the html. needa make the post exist before the page renders
+    with client.application.app_context():
+        post = Post(title="hello", text="This is a test")
+        db.session.add(post)
+        db.session.commit()
+
     # hit /search/ without a query
     response = client.get("/search/")
     assert response.status_code == 200
@@ -85,7 +94,7 @@ def test_search(client):
     response = client.get("/search/?query=hello")
     assert response.status_code == 200
     assert b"hello" in response.data or b"Search results" in response.data
-
+    
 
 # "Be sure to write a test for this on your own!"
 
